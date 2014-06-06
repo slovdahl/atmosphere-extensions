@@ -271,6 +271,7 @@
 		<module>gwt20</module>
         <module>rmi/modules</module>
         <module>sockjs/modules</module>
+        <module>eventbus/modules</module>
     </modules>
     <reporting>
         <outputDirectory>target/site</outputDirectory>
@@ -501,6 +502,7 @@
         <slf4j-impl-version>1.6.1</slf4j-impl-version>
         <slf4j-version>1.6.1</slf4j-version>
         <logback-version>0.9.30</logback-version>
+        <guava-version>17.0</guava-version>
 
         <atmosphere-version>2.2.0-RC2</atmosphere-version>
         <javascript-version>2.2.1</javascript-version>

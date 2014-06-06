@@ -1,0 +1,58 @@
+/*
+ * Copyright 2014 Sebastian Lövdahl
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+package org.atmosphere.eventbus.event;
+
+import org.atmosphere.websocket.WebSocketEventListener;
+
+/**
+ * @author Sebastian Lövdahl
+ */
+public abstract class WebSocket extends Event {
+
+    private final WebSocketEventListener.WebSocketEvent<?> webSocketEvent;
+
+    WebSocket(WebSocketEventListener.WebSocketEvent<?> webSocketEvent) {
+        this.webSocketEvent = webSocketEvent;
+    }
+
+    public WebSocketEventListener.WebSocketEvent<?> getWebSocketEvent() {
+        return webSocketEvent;
+    }
+
+    public static WebSocket createClose(WebSocketEventListener.WebSocketEvent webSocketEvent) {
+        return new WebSocketClose(webSocketEvent);
+    }
+
+    public static WebSocket createConnect(WebSocketEventListener.WebSocketEvent webSocketEvent) {
+        return new WebSocketConnect(webSocketEvent);
+    }
+
+    public static WebSocket createControl(WebSocketEventListener.WebSocketEvent webSocketEvent) {
+        return new WebSocketControl(webSocketEvent);
+    }
+
+    public static WebSocket createDisconnect(WebSocketEventListener.WebSocketEvent webSocketEvent) {
+        return new WebSocketDisconnect(webSocketEvent);
+    }
+
+    public static WebSocket createHandshake(WebSocketEventListener.WebSocketEvent webSocketEvent) {
+        return new WebSocketHandshake(webSocketEvent);
+    }
+
+    public static WebSocket createMessage(WebSocketEventListener.WebSocketEvent webSocketEvent) {
+        return new WebSocketMessage(webSocketEvent);
+    }
+}
